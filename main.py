@@ -1,16 +1,14 @@
-# This is a sample Python script.
+import app.io.input as input
+import app.io.output as output
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    output.log('Hello, World!')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    name = input.read_input('What is your name?')
+    output.write_file(name, 'Hello, World!')
+
+    content = input.read_file(name)
+    output.log(content)
+
+    df = input.read_file_pandas('resources/data.csv')
+    output.log(df.head())
